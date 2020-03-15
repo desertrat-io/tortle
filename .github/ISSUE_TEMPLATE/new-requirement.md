@@ -2,7 +2,7 @@
 name: New Requirement
 about: A new feature to be added to tortle
 title: "[REQ]"
-labels: ''
+labels: requirement
 assignees: ''
 
 ---
