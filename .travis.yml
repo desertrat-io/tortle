@@ -1,0 +1,14 @@
+os: linux
+dist: xenial
+language: scala
+jdk: oraclejdk11
+scala:
+  - 2.13.1
+
+services: mysql
+
+before_script:
+  - mysql -e 'CREATE DATABASE tortle_test;'
+
+script:
+  - sbt test

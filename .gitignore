@@ -6,4 +6,5 @@ target
 /.project
 /.settings
 /RUNNING_PID
-/.g8
+conf/db.conf
+node_modules
