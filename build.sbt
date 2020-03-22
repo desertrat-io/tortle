@@ -21,6 +21,10 @@ dependencyOverrides ++= Seq(
 )
 
 playEbeanModels in Compile := Seq("models.*")
+
 playEbeanModels in Test := Seq("models.*")
+javaOptions in Test += s"-Dconfig.file=conf/application.test.conf"
 inConfig(Test)(PlayEbean.scopedSettings)
+fork in Test := true
+
 playEbeanDebugLevel := 4
