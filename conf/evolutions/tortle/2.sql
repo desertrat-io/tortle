@@ -1,0 +1,9 @@
+-- !Ups
+
+ALTER TABLE users DROP COLUMN first_name;
+ALTER TABLE users DROP COLUMN last_name;
+
+-- !Downs
+
+ALTER TABLE users ADD COLUMN first_name VARCHAR(255) NOT NULL DEFAULT '';
+ALTER TABLE users ADD COLUMN last_name VARCHAR(255) NOT NULL DEFAULT '';
