@@ -1,9 +1,9 @@
 os: linux
 dist: xenial
+jdk: oraclejdk11
 
 matrix:
   include:
-    - jdk: oraclejdk11
     - language: scala
       scala:
         - 2.13.1
