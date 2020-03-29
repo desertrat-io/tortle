@@ -17,8 +17,11 @@
     <body>
         @* And here's where we render the `Html` object containing
          * the page content. *@
+        <div id="tortle">
         @content
+        </div>
 
-        <script src="@routes.Assets.versioned("javascripts/main.js")" type="text/javascript"></script>
+
+        <script src="@routes.Assets.versioned("javascripts/tortle.js")" type="text/javascript"></script>
     </body>
 </html>

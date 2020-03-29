@@ -1,14 +1,31 @@
 os: linux
 dist: xenial
-language: scala
 jdk: oraclejdk11
-scala:
-  - 2.13.1
 
-services: mysql
+matrix:
+  include:
+    - language: scala
+      scala:
+        - 2.13.1
 
-before_script:
-  - mysql -e 'CREATE DATABASE tortle_test;'
+      services: mysql
 
-script:
-  - sbt test
+      before_script:
+        - mysql -e 'CREATE DATABASE tortle_test;'
+
+      script:
+        - sbt test
+
+    - language: node_js
+
+      node_js:
+        - 10.15
+
+      install:
+        - npm install
+
+      before_script:
+        - npm run dev
+
+      script:
+        - npm run lint
