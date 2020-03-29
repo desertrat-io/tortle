@@ -8,13 +8,14 @@ matrix:
       scala:
         - 2.13.1
 
-        services: mysql
+      services: mysql
 
-        before_script:
-          - mysql -e 'CREATE DATABASE tortle_test;'
+      before_script:
+        - mysql -e 'CREATE DATABASE tortle_test;'
 
-        script:
-          - sbt test
+      script:
+        - sbt test
+
     - language: node_js
 
       node_js:
