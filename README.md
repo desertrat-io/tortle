@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.com/desertrat-io/tortle.svg?branch=master)](https://travis-ci.com/desertrat-io/tortle)
+![GitHub](https://img.shields.io/github/license/desertrat-io/tortle)
+![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/desertrat-io/tortle)
+
+
 # Tortle
 
 A portal to your piece of the web
