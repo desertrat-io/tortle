@@ -13,7 +13,8 @@ libraryDependencies ++= Seq(
   jdbc,
   "io.ebean" % "ebean" % "12.1.13",
   "org.glassfish.jaxb" % "jaxb-core" % "2.3.0.1",
-  "org.glassfish.jaxb" % "jaxb-runtime" % "2.3.2"
+  "org.glassfish.jaxb" % "jaxb-runtime" % "2.3.2",
+  "org.mockito" % "mockito-core" % "2.10.0" % "test"
 )
 
 dependencyOverrides ++= Seq(
