@@ -13,11 +13,11 @@ import static play.test.Helpers.route;
 public class HomeControllerTest extends TortleTest {
     @Test
     public void testIndex() {
-        Http.RequestBuilder request = new Http.RequestBuilder()
+        final Http.RequestBuilder request = new Http.RequestBuilder()
                 .method(GET)
                 .uri("/");
 
-        Result result = route(app, request);
+        final Result result = route(app, request);
         assertEquals(OK, result.status());
     }
 

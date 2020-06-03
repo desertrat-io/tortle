@@ -17,7 +17,7 @@ public class User extends Model {
     Long id;
 
     @NotNull
-    UUID idUuid;
+    UUID idUuid = UUID.randomUUID();
 
     @NotNull @Column(unique = true)
     String email;
