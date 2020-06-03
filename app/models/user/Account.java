@@ -20,7 +20,7 @@ public class Account extends Model {
     Long id;
 
     @NotNull
-    UUID idUuid;
+    UUID idUuid = UUID.randomUUID();
 
     @NotNull @OneToOne
     User user;

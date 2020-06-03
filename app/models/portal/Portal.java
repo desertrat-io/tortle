@@ -22,7 +22,7 @@ public class Portal extends Model {
     Long id;
 
     @NotNull
-    UUID idUuid;
+    UUID idUuid = UUID.randomUUID();
 
     @Length(value = 1000) @NotNull
     String portalTitle;
@@ -37,7 +37,6 @@ public class Portal extends Model {
     //@ManyToOne(optional = false)
     Provider provider = null;
 
-    @NotNull
     Timestamp createdOn = null;
 
     Integer portalWidth = null;
