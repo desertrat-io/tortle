@@ -1,25 +1,42 @@
-@()
-<nav class="navbar is-fixed-top is-primary is-transparent" role="navigation" aria-label="dropdown navigation">
+@(selectedPageName: String = "")
 
-    <div class="container">
-        <div class="navbar-brand">
-            <a class="navbar-item">
-                <img src="@routes.Assets.versioned("images/icons/logo.png")" alt="Tortle logo"/>
-            </a>
-            <span class="navbar-burger burger" data-target="tortle-top-links">
-                <span> </span>
-                <span> </span>
-            </span>
-        </div>
-        <div class="navbar-menu" id="tortle-top-links">
-            <div class="navbar-end">
-                <a class="navbar-item is-active">
-                    Home
-                </a>
-                <a class="navbar-item">
-                    Login
-                </a>
+<section class="hero is-bold is-primary">
+    <div class="hero-head">
+        <nav class="navbar is-fixed-top" role="navigation" aria-label="dropdown navigation">
+
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="@routes.Assets.versioned("images/icons/logo.png")" alt="Tortle logo"/>
+                    </a>
+                    <span class="navbar-burger burger" data-target="tortle-top-links">
+                        <span> </span>
+                        <span> </span>
+                        <span> </span>
+                    </span>
+                </div>
+                <div class="navbar-menu" id="tortle-top-links">
+                    <div class="navbar-end">
+
+                    </div>
+                </div>
             </div>
+        </nav>
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title ">Tortle</h1>
+            <h2 class="subtitle">Easy content portals</h2>
         </div>
     </div>
-</nav>
+
+    <div class="hero-foot">
+        <div class="tabs">
+            <ul>
+                <li><a href="@routes.HomeController.index" class="navbar-item @if(selectedPageName == "home"){is-active}">Home</a></li>
+                <li><a class="navbar-item @if(selectedPageName == "login"){is-active}">Login</a></li>
+                <li><a href="@routes.SignupController.index" class="navbar-item active @if(selectedPageName == "signup"){is-active}">Sign Up</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
