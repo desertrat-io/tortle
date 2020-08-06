@@ -22,6 +22,7 @@ module.exports = {
         hot: true
     },
     resolve: {
+        extensions: [".js", ".vue"],
         alias: {
             "vue$": "vue/dist/vue.esm.js"
         }
@@ -34,7 +35,7 @@ module.exports = {
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: ["@babel/preset-env"]
+                        presets: [ "@babel/preset-env" ]
                     }
                 }
             },
@@ -44,12 +45,17 @@ module.exports = {
                     [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
             },
             {
+                test: /\.css$/,
+                use: [
+                    "css-loader",
+                    "vue-style-loader"
+                ]
+            },
+            {
                 test: /\.vue$/,
                 exclude: /(node_modules)/,
                 use: [{
                     loader: "vue-loader"
-                }, {
-                    loader: "vue-style-loader"
                 }]
             },
             {
