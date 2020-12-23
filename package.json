@@ -15,7 +15,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "bulma": "^0.8.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "vue": "^2.6.11",
     "vue-password-strength-meter": "^1.7.2",
     "zxcvbn": "^4.4.2"
