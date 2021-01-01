@@ -13,7 +13,7 @@
     "style-lint": "./node_modules/stylelint/bin/stylelint.js ./scss/**/*.scss --syntax scss"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bulma": "^0.8.1",
     "lodash": "^4.17.20",
     "vue": "^2.6.11",
