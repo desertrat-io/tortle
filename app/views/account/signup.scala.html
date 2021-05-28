@@ -1,17 +1,20 @@
-@()
-
-@main("Tortle - Sign Up") {
+@(token: String)(messages: play.i18n.Messages)
+@main(messages("sign.up.title")) {
     @partial.topnav("signup")
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-4 is-offset-one-quarter"><h1 class="title">Sign up here</h1></div>
+                <div class="column is-4 is-offset-one-quarter">
+                    <h1 class="title">@messages("sign.up.here")</h1>
+                </div>
             </div>
             <div class="columns">
                 <div class="column is-4 is-offset-one-quarter">
                     <tortle-signup></tortle-signup>
+                    @blocks.csrf(token)
                 </div>
             </div>
         </div>
     </section>
+
 }

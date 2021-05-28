@@ -3,29 +3,26 @@ organization := "io.desertrat"
 
 version := "1.0-SNAPSHOT"
 
-lazy val root = (project in file(".")).enablePlugins(PlayJava, PlayEbean)
+scalaVersion := "2.13.4"
 
-scalaVersion := "2.13.1"
+lazy val root = (project in file(".")).enablePlugins(PlayJava)
+
 
 libraryDependencies ++= Seq(
   "mysql" % "mysql-connector-java" % "8.0.19",
   guice,
-  jdbc,
-  "io.ebean" % "ebean" % "12.1.13",
+  javaJpa,
+  "org.hibernate" % "hibernate-core" % "5.4.30.Final",
   "org.glassfish.jaxb" % "jaxb-core" % "2.3.0.1",
   "org.glassfish.jaxb" % "jaxb-runtime" % "2.3.2",
-  "org.mockito" % "mockito-core" % "2.10.0" % "test"
+  "org.mockito" % "mockito-core" % "3.7.7" % "test",
+  "org.projectlombok" % "lombok" % "1.18.20"
 )
 
-dependencyOverrides ++= Seq(
-  "io.ebean" % "ebean" % "12.1.13"
-)
 
-playEbeanModels in Compile := Seq("models.*")
+Test / javaOptions += s"-Dconfig.file=conf/application.test.conf"
 
-playEbeanModels in Test := Seq("models.*")
-javaOptions in Test += s"-Dconfig.file=conf/application.test.conf"
-inConfig(Test)(PlayEbean.scopedSettings)
-fork in Test := true
+Test / fork := true
 
-playEbeanDebugLevel := 4
+PlayKeys.externalizeResourcesExcludes += baseDirectory.value / "conf" / "META-INF" / "persistence.xml"
+

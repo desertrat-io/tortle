@@ -33,9 +33,9 @@
     <div class="hero-foot">
         <div class="tabs">
             <ul>
-                <li><a href="@routes.HomeController.index" class="navbar-item @if(selectedPageName == "home"){is-active}">Home</a></li>
+                <li><a href="@routes.HomeController.index()" class="navbar-item @if(selectedPageName == "home"){is-active}">Home</a></li>
                 <li><a class="navbar-item @if(selectedPageName == "login"){is-active}">Login</a></li>
-                <li><a href="@routes.SignupController.index" class="navbar-item active @if(selectedPageName == "signup"){is-active}">Sign Up</a></li>
+                <li><a href="@routes.SignupController.index()" class="navbar-item active @if(selectedPageName == "signup"){is-active}">Sign Up</a></li>
             </ul>
         </div>
     </div>

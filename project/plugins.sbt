@@ -1,4 +1,3 @@
 // The Play plugin
-addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.8.0")
-addSbtPlugin("com.typesafe.sbt" % "sbt-play-enhancer" % "1.2.2")
-addSbtPlugin("com.payintech" % "sbt-play-ebean" % "20.02")
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.8.8")
+addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "0.9.25")

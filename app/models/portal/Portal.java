@@ -1,70 +1,77 @@
 package models.portal;
 
-import io.ebean.Finder;
-import io.ebean.Model;
-import io.ebean.annotation.Length;
-import io.ebean.annotation.NotNull;
-import io.ebean.annotation.SoftDelete;
-import models.user.User;
-import org.springframework.lang.NonNull;
+import models.users.User;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import java.sql.Timestamp;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-public class Portal extends Model {
+public class Portal {
 
     @Id
-    Long id;
+    long id;
 
-    @NotNull
     UUID idUuid = UUID.randomUUID();
 
-    @Length(value = 1000) @NotNull
     String portalTitle;
 
-    @Length(value = 1000) @NotNull
     String portalDescription = "";
 
-    @NotNull @OneToOne
+    @OneToOne
     User owner;
 
     // provider is just a stub right now
     //@ManyToOne(optional = false)
-    Provider provider = null;
 
-    Timestamp createdOn = null;
+    Provider provider;
 
-    Integer portalWidth = null;
+    Timestamp createdOn;
+
+    Integer portalWidth;
 
     Integer horizontalOrder;
 
-    @SoftDelete @NotNull
     boolean isDeleted;
 
-    public Portal setPortalTitle(String portalTitle) {
-        this.portalTitle = portalTitle;
-        return this;
+    @Override
+    public final String toString() {
+        return "Portal{" +
+                "id=" + id +
+                ", idUuid=" + idUuid +
+                ", portalTitle='" + portalTitle + '\'' +
+                ", portalDescription='" + portalDescription + '\'' +
+                ", owner=" + owner +
+                ", provider=" + provider +
+                ", createdOn=" + createdOn +
+                ", portalWidth=" + portalWidth +
+                ", horizontalOrder=" + horizontalOrder +
+                ", isDeleted=" + isDeleted +
+                '}';
     }
 
-    public Portal setPortalDescription(String portalDescription) {
-        this.portalDescription = portalDescription;
-        return this;
+    @Override
+    public final boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || this.getClass() != o.getClass()) return false;
+        final Portal portal = (Portal) o;
+        return isDeleted == portal.isDeleted &&
+                id == portal.id &&
+                idUuid.equals(portal.idUuid) &&
+                portalTitle.equals(portal.portalTitle) &&
+                Objects.equals(portalDescription, portal.portalDescription) &&
+                owner.equals(portal.owner) &&
+                provider.equals(portal.provider) &&
+                createdOn.equals(portal.createdOn) &&
+                Objects.equals(portalWidth, portal.portalWidth) &&
+                Objects.equals(horizontalOrder, portal.horizontalOrder);
     }
 
-    public Portal setPortalWidth(Integer portalWidth) {
-        this.portalWidth = portalWidth;
-        return this;
+    @Override
+    public final int hashCode() {
+        return Objects.hash(id, idUuid, portalTitle, portalDescription, owner, provider, createdOn, portalWidth, horizontalOrder, isDeleted);
     }
-
-    public Portal setHorizontalOrder(Integer horizontalOrder) {
-        this.horizontalOrder = horizontalOrder;
-        return this;
-    }
-
-    public static final Finder<Long, Portal> find = new Finder<>(Portal.class);
 }
