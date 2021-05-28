@@ -10,3 +10,4 @@ conf/db.conf
 node_modules
 /public/javascripts/tortle.js
 /public/stylesheets/tortle.css
+*.log

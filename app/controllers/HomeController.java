@@ -1,8 +1,8 @@
 package controllers;
 
+import lib.annotations.NonInterface;
 import play.mvc.Controller;
 import play.mvc.Result;
-import util.annotations.NonInterface;
 
 /**
  * This controller contains an action to handle HTTP requests

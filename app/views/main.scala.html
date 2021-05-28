@@ -4,6 +4,7 @@
  * two arguments, a `String` for the title of the page and an `Html`
  * object to insert into the body of the page.
  *@
+
 @(title: String)(content: Html)
 
 <!DOCTYPE html>
@@ -12,11 +13,10 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        @* Here's where we render the page title `String`. *@
-        <title>@title</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/tortle.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/icons/favicon.ico")">
         <script src="@routes.Assets.versioned("javascripts/tortle.js")" type="text/javascript" defer></script>
+        <title>@title</title>
     </head>
     <body>
         <header>

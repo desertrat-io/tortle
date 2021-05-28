@@ -13,8 +13,12 @@
     "style-lint": "./node_modules/stylelint/bin/stylelint.js ./scss/**/*.scss --syntax scss"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/vue-fontawesome": "^0.1.10",
     "axios": "^0.19.2",
     "bulma": "^0.8.1",
+    "js-loading-overlay": "^1.2.0",
     "lodash": "^4.17.19",
     "vue": "^2.6.11",
     "vue-password-strength-meter": "^1.7.2",

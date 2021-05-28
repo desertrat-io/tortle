@@ -22,7 +22,7 @@ matrix:
         - 10.15
 
       install:
-        - npm install
+        - yarn install
 
       before_script:
         - npm run dev
