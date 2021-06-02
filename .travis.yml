@@ -1,31 +1,52 @@
 os: linux
-dist: xenial
-jdk: oraclejdk11
 
 matrix:
   include:
-    - language: scala
-      scala:
-        - 2.13.1
+    - language: php
 
-      services: mysql
+      php:
+        - 7.4
+        - 8.0
+
+      addons:
+        chrome: stable
+
+      services: postgresql
+
+      before_install:
+        - createdb tortle_test
+
+      install:
+        - cp .env.ci .env
+        - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+        - php artisan key:generate
+        - php artisan dusk:chrome-driver
+        - yarn install
 
       before_script:
-        - mysql -e 'CREATE DATABASE tortle_test;'
+        - php artisan migrate
+        - yarn dev
+        - mkdir build
+        - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+        - php artisan serve --no-reload &
 
       script:
-        - sbt test
+        - php vendor/bin/phpunit
+        - php artisan dusk
+
+      after_success:
+        - travis_retry php vendor/bin/php-coveralls -v
 
     - language: node_js
 
       node_js:
-        - 10.15
+        - 14.16
 
       install:
         - yarn install
-
-      before_script:
-        - npm run dev
+        - yarn dev
 
       script:
-        - npm run lint
+        - yarn lint
+        - yarn test
+

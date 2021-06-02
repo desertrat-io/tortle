@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/desertrat-io/tortle.svg?branch=master)](https://travis-ci.com/desertrat-io/tortle)
 ![GitHub](https://img.shields.io/github/license/desertrat-io/tortle)
-![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/desertrat-io/tortle)
+![Snyk Vulnerabilities for Tortle](https://img.shields.io/snyk/vulnerabilities/github/desertrat-io/tortle)
 
 
 # Tortle
@@ -20,11 +20,13 @@ to any browser setup with a default page for a new tab.
 
 Tortle is built (as of writing) on:
 
-- Java 11 (Oracle)
-- Play Framework 2.8
-- Twirl
-- MySQL
-- SCSS
-- VueJS
+- PHP 7.4
+- Laravel 8.*
+- Livewire
+- Postgres
+- TailwindCSS  
+- Vue
+
+I opted to not use Alpine.js for personal preference reasons.
 
 Contact: [Mike](mailto:mike@desertrat.io)

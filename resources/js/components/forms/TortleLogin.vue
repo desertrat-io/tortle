@@ -4,13 +4,8 @@
 
 <script>
     export default {
-        name: "tortle-login",
         data() {
-
+            return {};
         }
-    }
+    };
 </script>
-
-<style scoped>
-
-</style>
