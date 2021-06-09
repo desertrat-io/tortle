@@ -5,6 +5,7 @@
 </head>
 <body>
     <div id="tortle">
+        @include('layout.header')
         @yield('app')
     </div>
 </body>

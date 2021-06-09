@@ -6,7 +6,7 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 import Echo from "laravel-echo";
 
 window.Pusher = require("pusher-js");
-
+/*
 window.Echo = new Echo({
     broadcaster: "pusher",
     // eslint-disable-next-line no-process-env
@@ -16,4 +16,4 @@ window.Echo = new Echo({
     forceTLS: true,
     wsHost: window.location.hostname,
     wsPort: 6001
-});
+});*/

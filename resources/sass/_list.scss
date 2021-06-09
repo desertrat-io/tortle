@@ -1,0 +1,18 @@
+ul.tortle-h-list {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  li {
+    float: left;
+    min-width: $tortle-h-list-item-min-width;
+  }
+}
+
+ul.tortle-link-list > li {
+  a {
+    text-align: center;
+    display: block;
+    padding: $tortle-list-link-padding;
+    text-decoration: none;
+  }
+}

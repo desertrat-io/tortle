@@ -1,2 +1,17 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
+ul.tortle-h-list {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+ul.tortle-h-list li {
+  float: left;
+  min-width: 5rem;
+}
 
+ul.tortle-link-list > li a {
+  text-align: center;
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+}
