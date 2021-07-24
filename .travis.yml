@@ -16,6 +16,7 @@ matrix:
         - createdb tortle_test
 
       install:
+        - nvm install 14.7.3
         - cp .env.dusk.testing .env
         - travis_retry composer install --no-interaction --prefer-dist --no-suggest
         - php artisan key:generate
