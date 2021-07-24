@@ -2,5 +2,6 @@
 
 return [
     'main' => 'Tortle',
-    'main_subtitle' => 'Easy content portals'
+    'main_subtitle' => 'Easy content portals',
+    'registration' => 'Register'
 ];

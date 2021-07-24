@@ -1,11 +1,17 @@
 <template>
-    <div>
+    <div
+        :class="formattedContainerClasses"
+    >
         <label
+            :class="formattedLabelClasses"
             :for="id"
             :id="id + '_label'"
             :aria-label="label"
         >{{ label }}</label>
         <input
+            class="border border-black border-solid"
+            :class="formattedInputClasses"
+            :autocomplete="autocomplete"
             :type="type"
             :aria-labelledby="id + '_label'"
             :value="modelValue"
@@ -17,14 +23,28 @@
 </template>
 
 <script>
+
+    import UtilMixin from "../../mixins/util-mixin";
     export default {
+        mixins: [UtilMixin],
+        computed: {
+            formattedContainerClasses() {
+                return this.arrToSpacedStr(this.containerClasses);
+            },
+            formattedInputClasses() {
+                return this.arrToSpacedStr(this.inputClasses);
+            },
+            formattedLabelClasses() {
+                return this.arrToSpacedStr(this.labelClasses);
+            }
+        },
         data() {
             return {};
         },
         props: {
             type: {
                 type: String,
-                required: true,
+                required: false,
                 default: "text"
             },
             label: {
@@ -43,6 +63,26 @@
             },
             modelValue: {
                 type: [String, Number, Boolean],
+                required: false,
+                default: ""
+            },
+            autocomplete: {
+                type: String,
+                required: false,
+                default: ""
+            },
+            containerClasses: {
+                type: [String, Array],
+                required: false,
+                default: ""
+            },
+            inputClasses: {
+                type: [String, Array],
+                required: false,
+                default: ""
+            },
+            labelClasses: {
+                type: [String, Array],
                 required: false,
                 default: ""
             }
