@@ -6,6 +6,8 @@ matrix:
 
       php:
         - 8.0
+      node_js:
+        - 14.16
 
       addons:
         chrome: stable
@@ -16,7 +18,6 @@ matrix:
         - createdb tortle_test
 
       install:
-        - nvm use 12.18.1
         - cp .env.dusk.testing .env
         - travis_retry composer install --no-interaction --prefer-dist --no-suggest
         - php artisan key:generate
