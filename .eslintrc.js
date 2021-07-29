@@ -7,7 +7,7 @@ module.exports = {
         es6: true
     },
     parserOptions: {
-        "ecmaVersion": 2020,
+        ecmaVersion: 2020,
         ecmaFeatures: {
             globalReturn: false
         }
@@ -15,10 +15,10 @@ module.exports = {
     extends: [
         "plugin:vue/strongly-recommended"
     ],
-    "overrides": [
+    overrides: [
         {
-            "files": ["*.vue"],
-            "rules": {
+            files: ["*.vue"],
+            rules: {
                 "indent": "off"
             }
         }

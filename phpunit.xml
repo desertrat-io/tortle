@@ -18,11 +18,12 @@
             <directory suffix=".php">./app</directory>
         </include>
         <report>
-            <clover outputFile="build/clover.xml"/>
+            <clover outputFile="build/logs/clover.xml"/>
             <text outputFile="php://stdout"/>
         </report>
     </coverage>
     <php>
+        <env name="XDEBUG_MODE" value="coverage"/>
         <server name="APP_ENV" value="testing"/>
         <server name="BCRYPT_ROUNDS" value="4"/>
         <server name="CACHE_DRIVER" value="array"/>

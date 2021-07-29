@@ -5,9 +5,7 @@ matrix:
     - language: php
 
       php:
-        - 7.4
         - 8.0
-
       addons:
         chrome: stable
 
@@ -17,7 +15,9 @@ matrix:
         - createdb tortle_test
 
       install:
-        - cp .env.ci .env
+        - nvm install 12
+        - nvm use 12
+        - cp .env.dusk.testing .env
         - travis_retry composer install --no-interaction --prefer-dist --no-suggest
         - php artisan key:generate
         - php artisan dusk:chrome-driver

@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
+/**
+ * Class RouteServiceProvider
+ *
+ * @package App\Providers
+ * @author  Mike Lawson <mike@desertrat.io>
+ * @license MIT https://opensource.org/licenses/MIT
+ */
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -26,7 +33,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string|null
      */
-    // protected $namespace = 'App\\Http\\Controllers';
+     protected $namespace = 'App\\Http\\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.

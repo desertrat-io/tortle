@@ -7,6 +7,18 @@ module.exports = {
     ],
     darkMode: false, // or 'media' or 'class'
     theme: {
+        colors: require("./resources/tailwind/theme/colors"),
+        backgroundColor: theme => ({
+            cyan: theme("colors.cyan"),
+            "cyan-darker": theme("colors.cyan-darker"),
+            "sea-green": theme("colors.sea-green"),
+            white: theme("colors.white"),
+            red: theme("colors.red")
+
+        }),
+        fontFamily: {
+            "body": ["Quicksand", "Opens Sans"]
+        },
         extend: {}
     },
     variants: {

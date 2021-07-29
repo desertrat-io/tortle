@@ -1,0 +1,11 @@
+.tortle-btn {
+    @apply p-2 rounded w-24
+}
+
+.tortle-btn-ok {
+    @apply bg-sea-green text-white hover:from-white
+}
+
+.tortle-btn-cancel {
+    @apply bg-red text-white
+}

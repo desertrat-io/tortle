@@ -15,4 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
+})->name('home');
+
+Route::group(['namespace' => 'Web'], static function() {
+    Route::get('register', ['as' => 'register', 'uses' => 'RegisterController@index']);
 });

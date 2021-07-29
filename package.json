@@ -50,7 +50,6 @@
         "pusher-js": "^7.0.3",
         "vue": "^3.0.11",
         "vue-loading-overlay": "^4.0.2",
-        "vue-password-strength-meter": "^1.7.2",
         "vuex": "^4.0.1"
     }
 }

@@ -1,13 +1,15 @@
 
+import {createApp} from "vue";
 require("./bootstrap");
 
-window.Vue = require("vue").default;
+window.Vue = require("vue");
+
+
+
+const app = createApp({});
 
 const files = require.context("./", true, /\.vue$/i);
 // eslint-disable-next-line no-undef
-files.keys().map(key => Vue.component(key.split("/").pop().split(".")[0], files(key).default));
+files.keys().map(key => app.component(key.split("/").pop().split(".")[0], files(key).default));
 
-// eslint-disable-next-line no-undef,no-unused-vars
-const app = new Vue({
-    el: "#app"
-});
+app.mount("#tortle");
