@@ -3,9 +3,14 @@ preset: psr12
 tab-width: 4
 finder:
   exclude:
-    - "resources"
-    - "tests"
-    - "storage"
     - "bootstrap"
+    - "build"
     - "config"
-    -
+    - "node_modules"
+    - "public"
+    - "resources"
+    - "routes"
+    - "specs"
+    - "storage"
+    - "tests"
+    - "vendor"
