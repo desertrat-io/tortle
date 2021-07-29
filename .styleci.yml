@@ -1,13 +1,16 @@
-php:
-  preset: laravel
-  disabled:
-    - no_unused_imports
-  finder:
-    not-name:
-      - index.php
-      - server.php
-js:
-  finder:
-    not-name:
-      - webpack.mix.js
-css: true
+version: 8
+preset: psr12
+tab-width: 4
+finder:
+  exclude:
+    - "bootstrap"
+    - "build"
+    - "config"
+    - "node_modules"
+    - "public"
+    - "resources"
+    - "routes"
+    - "specs"
+    - "storage"
+    - "tests"
+    - "vendor"
