@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.com/desertrat-io/tortle.svg?branch=master)](https://travis-ci.com/desertrat-io/tortle)
 ![GitHub](https://img.shields.io/github/license/desertrat-io/tortle)
 ![Snyk Vulnerabilities for Tortle](https://img.shields.io/snyk/vulnerabilities/github/desertrat-io/tortle)
-
+[![StyleCI](https://github.styleci.io/repos/246732785/shield?branch=master)](https://github.styleci.io/repos/246732785?branch=master)
 
 # Tortle
 

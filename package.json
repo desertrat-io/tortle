@@ -9,19 +9,19 @@
         "prod": "npm run production",
         "production": "npm run lint && cross-env NODE_ENV=production mix --production",
         "lint": "cross-env NODE_ENV=development node_modules/.bin/eslint --format unix resources/js/**/*.{js,vue}",
-        "test": "cross-env NODE_ENV=development node_modules/.bin/mochapack --require specs/setup.js --webpack-config=node_modules/laravel-mix/setup/webpack.config.js specs/**/*.spec.js"
+        "test": "node_modules/.bin/mochapack --require specs/setup.js --webpack-config=node_modules/laravel-mix/setup/webpack.config.js specs/**/*.spec.js"
     },
     "devDependencies": {
         "@vue/compiler-sfc": "^3.0.11",
         "@vue/test-utils": "^1.2.0",
         "browser-sync": "^2.26.14",
         "browser-sync-webpack-plugin": "^2.3.0",
-        "chai": "^4.3.4",
         "cross-env": "^7.0.3",
         "eslint": "^7.27.0",
         "eslint-formatter-markdown": "^1.0.4",
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-vue": "^7.9.0",
+        "expect": "^27.0.6",
         "jsdom": "^16.6.0",
         "jsdom-global": "^3.0.2",
         "laravel-mix": "^6.0.6",
