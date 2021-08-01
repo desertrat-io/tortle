@@ -5,6 +5,7 @@
 /vendor
 .env
 .env.backup
+.env.dusk.local
 .phpunit.result.cache
 npm-debug.log
 yarn-error.log
@@ -12,4 +13,3 @@ yarn-error.log
 _ide_helper.php
 .phpstorm.meta.php
 build
-.env.dusk.local
