@@ -34,5 +34,6 @@ if (mix.inProduction()) {
     mix.version();
 } else {
     // eslint-disable-next-line no-process-env
-    mix.browserSync(process.env.APP_URL);
+    mix.browserSync(process.env.APP_URL)
+        .sourceMaps();
 }

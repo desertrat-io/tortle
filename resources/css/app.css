@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import "./custom/buttons.css";
+@import "~vue-loading-overlay/dist/vue-loading.css";
 
 @tailwind base;
 @tailwind components;

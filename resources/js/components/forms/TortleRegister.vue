@@ -1,45 +1,62 @@
 <template>
     <form
+        ref="registration-form"
+        :action="postTo"
         autocomplete="off"
         class="flex flex-col gap-y-2 w-full mt-40"
+        method="post"
     >
+        <input
+            :value="csrf"
+            name="_token"
+            type="hidden"
+        >
+        <tortle-input
+            id="tortle-name"
+            v-model="name"
+            class="text-2xl"
+            input-classes="rounded-md h-16 pl-2 pr-2 w-full"
+            label="Name: "
+            name="name"
+            type="text"
+        ></tortle-input>
         <tortle-input
             id="tortle-email"
-            name="email"
-            type="email"
-            label="Email: "
             v-model="email"
             autocomplete="new-password"
             class="text-2xl"
             input-classes="rounded-md h-16 pl-2 pr-2 w-full"
+            label="Email: "
+            name="email"
+            type="email"
         ></tortle-input>
         <tortle-input
             id="tortle-password"
-            name="password"
-            type="password"
             v-model="password"
-            label="Password: "
             autocomplete="new-password"
             class="text-2xl"
             input-classes="rounded-md h-16 pl-2 pr-2 w-full"
+            label="Password: "
+            name="password"
+            type="password"
         ></tortle-input>
         <tortle-input
             id="tortle-password-confirm"
-            name="password-confirm"
-            type="password"
             v-model="passwordConfirm"
-            label="Confirm Password: "
             autocomplete="new-password"
             class="text-2xl"
             input-classes="rounded-md h-16 pl-2 pr-2 w-full"
+            label="Confirm Password: "
+            name="password-confirm"
+            type="password"
         ></tortle-input>
         <div class="grid grid-cols-12">
             <div class="col-start-9 col-end-10">
                 <tortle-button
                     id="reset-button"
-                    name="reset-button"
-                    button-variant="cancel"
                     button-type="reset"
+                    button-variant="cancel"
+                    name="reset-button"
                     @click="reset"
                 >
                     Reset
@@ -49,11 +66,13 @@
                 <tortle-button
                     id="register-button"
                     name="register-button"
+                    @click="doRegister"
                 >
                     Register
                 </tortle-button>
             </div>
         </div>
+        <loading :active="isRegistering"></loading>
     </form>
 </template>
 
@@ -61,23 +80,55 @@
 
     import TortleInput from "./controls/TortleInput";
     import TortleButton from "./controls/TortleButton";
+    import Loading from "vue-loading-overlay";
+    import axios from "axios";
 
     export default {
         data() {
             return {
+                name: "",
                 email: "",
                 password: "",
-                passwordConfirm: ""
+                passwordConfirm: "",
+                isRegistering: false,
+                postTo: ""
             };
         },
         components: {
-            TortleInput, TortleButton
+            TortleInput, TortleButton, Loading
         },
         methods: {
+            doRegister() {
+                this.isRegistering = true;
+                axios.post("/api/v1/user/register", {
+                    name: this.name,
+                    email: this.email,
+                    password: this.password,
+                    // for validation purposes, this is not correct naming in our standard
+                    // so I've delimited it as a string property
+                    "password_confirmation": this.passwordConfirm
+                }).then(response => {
+                    this.isRegistering = false;
+                    this.postTo = response.data.data.post_to;
+                    this.$nextTick(() => this.$refs["registration-form"].submit());
+                    console.log(response);
+
+                }).catch(error => {
+                    this.isRegistering = false;
+                    console.error(error);
+                });
+            },
             reset() {
+                this.name = "";
                 this.email = "";
                 this.password = "";
                 this.passwordConfirm = "";
+            }
+        },
+        props: {
+            csrf: {
+                type: String,
+                required: true
             }
         }
     };

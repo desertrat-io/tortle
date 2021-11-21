@@ -26,9 +26,50 @@
   color: rgba(255, 255, 255, var(--tw-text-opacity))
 }
 
+.vld-shown {
+  overflow: hidden;
+}
+
+.vld-overlay {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  align-items: center;
+  display: none;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.vld-overlay.is-active {
+  display: flex;
+}
+
+.vld-overlay.is-full-page {
+  z-index: 9999;
+  position: fixed;
+}
+
+.vld-overlay .vld-background {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #fff;
+  opacity: 0.5;
+}
+
+.vld-overlay .vld-icon, .vld-parent {
+  position: relative;
+}
+
+
 @charset "UTF-8";
 
-/*! tailwindcss v2.2.7 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v2.2.19 | MIT License | https://tailwindcss.com */
 
 /*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
@@ -482,6 +523,18 @@ button,
   cursor: pointer;
 }
 
+/**
+ * Override legacy focus reset from Normalize with modern Firefox focus styles.
+ *
+ * This is actually an improvement over the new defaults in Firefox in our testing,
+ * as it triggers the better focus styles even for links, which still use a dotted
+ * outline in Firefox by default.
+ */
+
+:-moz-focusring {
+  outline: auto;
+}
+
 table {
   border-collapse: collapse;
 }
@@ -728,6 +781,7 @@ video {
 }
 
 .sticky{
+  position: -webkit-sticky;
   position: sticky;
 }
 
@@ -18176,6 +18230,7 @@ html, body {
   }
 
   .sm\:sticky{
+    position: -webkit-sticky;
     position: sticky;
   }
 
@@ -35541,6 +35596,7 @@ html, body {
   }
 
   .md\:sticky{
+    position: -webkit-sticky;
     position: sticky;
   }
 
@@ -52906,6 +52962,7 @@ html, body {
   }
 
   .lg\:sticky{
+    position: -webkit-sticky;
     position: sticky;
   }
 
@@ -70271,6 +70328,7 @@ html, body {
   }
 
   .xl\:sticky{
+    position: -webkit-sticky;
     position: sticky;
   }
 
@@ -87636,6 +87694,7 @@ html, body {
   }
 
   .\32xl\:sticky{
+    position: -webkit-sticky;
     position: sticky;
   }
 

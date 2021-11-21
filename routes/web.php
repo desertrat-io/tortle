@@ -17,6 +17,23 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::group(['namespace' => 'Web'], static function() {
+Route::group(['namespace' => 'Web'], static function () {
     Route::get('register', ['as' => 'register', 'uses' => 'RegisterController@index']);
+    Route::get('login', ['as' => 'login', 'uses' => 'AuthController@showLoginForm']);
+    Route::post('login', ['as' => 'do.login', 'uses' => 'AuthController@login']);
+    Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
+
+    Route::group(['middleware' => 'auth'], static function () {
+        Route::get(
+            'email/verify',
+            ['as' => 'verification.notice', 'uses' => 'RegisterController@showEmailVerify']
+        );
+        Route::get(
+            'email/verify/{id}/{hash}',
+            ['as' => 'verification.verify', 'uses' => 'RegisterController@verifyEmail']
+        )->middleware('signed');
+
+        Route::group(['middleware', 'verified'], static function () {
+        });
+    });
 });
