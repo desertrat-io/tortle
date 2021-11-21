@@ -19,7 +19,7 @@ matrix:
         - cp .env.dusk.testing .env
         - travis_retry composer install --no-interaction --prefer-dist --no-suggest
         - php artisan key:generate
-        - php artisan dusk:chrome-driver 92
+        - php artisan dusk:chrome-driver 96
         - php artisan geoip:update
         - yarn install
 
