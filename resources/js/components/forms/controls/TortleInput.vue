@@ -3,20 +3,20 @@
         :class="formattedContainerClasses"
     >
         <label
-            :class="formattedLabelClasses"
-            :for="id"
             :id="id + '_label'"
             :aria-label="label"
+            :class="formattedLabelClasses"
+            :for="id"
         >{{ label }}</label>
         <input
-            class="border border-black border-solid"
-            :class="formattedInputClasses"
-            :autocomplete="autocomplete"
-            :type="type"
-            :aria-labelledby="id + '_label'"
-            :value="modelValue"
             :id="id"
+            :aria-labelledby="id + '_label'"
+            :autocomplete="autocomplete"
+            :class="formattedInputClasses"
             :name="name"
+            :type="type"
+            :value="modelValue"
+            class="border border-black border-solid"
             @input="$emit('update:modelValue', $event.target.value)"
         >
     </div>
@@ -25,6 +25,7 @@
 <script>
 
     import UtilMixin from "../../mixins/util-mixin";
+
     export default {
         mixins: [UtilMixin],
         computed: {

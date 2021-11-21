@@ -7,16 +7,6 @@ use Laravel\Dusk\Browser;
 class HomePage extends Page
 {
     /**
-     * Get the URL for the page.
-     *
-     * @return string
-     */
-    public function url()
-    {
-        return '/';
-    }
-
-    /**
      * Assert that the browser is on the page.
      *
      * @param Browser $browser
@@ -25,6 +15,16 @@ class HomePage extends Page
     public function assert(Browser $browser)
     {
         $browser->assertPathIs($this->url());
+    }
+
+    /**
+     * Get the URL for the page.
+     *
+     * @return string
+     */
+    public function url()
+    {
+        return '/';
     }
 
     /**

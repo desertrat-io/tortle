@@ -4,8 +4,7 @@ matrix:
   include:
     - language: php
 
-      php:
-        - 8.0
+      php: 8.0
       addons:
         chrome: stable
 
@@ -21,6 +20,7 @@ matrix:
         - travis_retry composer install --no-interaction --prefer-dist --no-suggest
         - php artisan key:generate
         - php artisan dusk:chrome-driver 92
+        - php artisan geoip:update
         - yarn install
 
       before_script:
@@ -39,8 +39,7 @@ matrix:
 
     - language: node_js
 
-      node_js:
-        - 14.16
+      node_js: 14.16
 
       install:
         - yarn install

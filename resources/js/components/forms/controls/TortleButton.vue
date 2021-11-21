@@ -1,11 +1,11 @@
 <template>
     <button
-        :class="joinedButtonClasses"
-        class="tortle-btn"
-        :type="buttonType"
         :id="id"
+        :class="joinedButtonClasses"
+        :type="buttonType"
+        class="tortle-btn"
     >
-        <slot />
+        <slot/>
     </button>
 </template>
 
