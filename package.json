@@ -48,7 +48,7 @@
         "livewire-vue": "^0.3.1",
         "push-js": "^1.1.1",
         "pusher-js": "^7.0.3",
-        "vue": "^3.0.11",
+        "vue": "^3.5.14",
         "vue-loading-overlay": "^4.0",
         "vuex": "^4.0.1"
     }
